@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#dceefa">
-<title>♡ a little world for you ♡</title>
+<title>给你的惊喜</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -721,6 +721,9 @@ function updatePlayer() {
 playButton.addEventListener("click", async () => {
   try {
     if (music.paused) {
+      console.log("音频地址：", music.currentSrc);
+      console.log("音频错误：", music.error);
+
       await music.play();
       statusBox.textContent = "♪ 正在播放";
     } else {
@@ -728,8 +731,8 @@ playButton.addEventListener("click", async () => {
       statusBox.textContent = "♡ 暂停一下";
     }
   } catch (error) {
-    statusBox.textContent =
-      "暂时无法播放，请检查音乐文件是否上传成功。";
+    console.error("播放失败：", error);
+    statusBox.textContent = "播放失败：" + error.name;
   }
 });
 
