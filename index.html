@@ -741,8 +741,12 @@ music.addEventListener("pause", updatePlayer);
 
 music.addEventListener("ended", () => {
   updatePlayer();
-  lyricBox.textContent = "♡ END OF TODAY'S PLAYLIST";
-  statusBox.textContent = "⸝⋆ 结束啦୨୧";
+
+  lyricPlaceholder.hidden = true;
+  lyricJP.textContent = "♡ END OF TODAY'S PLAYLIST";
+  lyricZH.textContent = "";
+
+  statusBox.textContent = "⸝⋆结束啦୨୧";
 });
 
 music.addEventListener("error", () => {
